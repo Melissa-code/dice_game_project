@@ -1,0 +1,42 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #696969;
+    height: 100vh;
+}
+
+#game-board {
+    background-image: url('img/bgGray.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 50% 100%; /* 50% horizontal and 100% vertical */ 
+    min-width: 100%;
+    min-height: 100%;
+    border: 1vh solid transparent;
+    border-image: linear-gradient( rgba(182, 173, 144, 1), rgba(147, 102, 57, 1), rgba(88, 47, 14, 1), rgba(127, 79, 36, 1));
+    border-image-slice: 30;
+}
+
+h1 {
+    display: none;
+}
+
+a {
+    font-size: 13px;
+    color: #696969;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #B1A7A6;
+}
+
+.icons {
+    width: 1em;
+    height: 1em;
+}
