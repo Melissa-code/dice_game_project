@@ -27,26 +27,102 @@
         <h1>Dice game</h1>
 
 
-        <!---------------------------------------------------------------->
-        <!-- FIRST ROW -->
-        <!---------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------------->
+        <!-- FIRST SECTION -->
+        <!----------------------------------------------------------------------------------------------------->
 
-        <div class="row pt-5 text-center d-flex justify-content-center align-items-center">
+        <section class="row pt-4">
 
             <div class="col">
 
                 <!-- Link New Game -->
                 <a href="#" id="newGame" class="d-flex justify-content-center align-items-center">
-                    <img src="img/iconAdd.svg" alt="nouvelle partie" class="icons"><span class="pl-2"></span>
+                    <img src="img/iconAdd.svg" alt="nouvelle partie" class="icons">
+                    <span class="pl-2"></span>
                     NEW GAME
                 </a>
 
             </div>
+        </section>
+
+
+        <!----------------------------------------------------------------------------------------------------->
+        <!-- SECOND SECTION -->
+        <!----------------------------------------------------------------------------------------------------->
+
+        <div class="row pt-5">
+
+            <!--------------- Player 1 zone -------------->
+            <div class="col-md-4">
+
+                <!-- Player 1 -->
+                <div class="d-flex justify-content-center align-items-center printPlayer">
+                    <h2 id="player1">PLAYER 1</h2>
+                    <span class="pl-2"></span>
+                    <img src="img/iconRedDot.svg" alt="point rouge montrant que le joueur en cours est le player 1" id="dotP1"> 
+                </div>
+
+                <!-- Global score player 1 -->
+                <p id="globalScoreP1" class="globalScore text-center">0</p>
+
+                <!-- Round score player 1 -->
+                <div class="card bg-card d-block mx-auto text-center">
+                    <div class="card-body">
+                        <h3 class="card-title text-dark">CURRENT</h3>
+                        <p id="currentScoreP1" class="card-text text-white">0</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!------------- Dice and links zone ------------->
+            <div id="printSideDice" class="col-md-4 text-center pt-5 pt-md-5">
+
+                <!-- Dice -->
+                <img src="img/dice1.svg" alt="face du dé" style="width: 4em; height: 4em;"> 
+
+                 <!-- Roll the dice link -->
+                 <p class="pt-4 pt-md-5"><a href="#" id="rollDiceLink">
+                    <img src="img/iconRefresh.svg" alt="lancer le dé" class="icons">
+                    <span class="pl-2"></span>
+                    ROLL DICE
+                </a></p>
+                
+                <!-- Hold link -->
+                <p><a href="#" id="holdLink">
+                    <img src="img/iconDownload.svg" alt="Ajouter les points au score global" class="icons">
+                    <span class="pl-2"></span>
+                    HOLD
+                </a></p>
+           
+            </div>
+
+           
+            <!--------------- Player 2 zone ----------------->
+            <div class="col-md-4 py-5 pt-md-0">
+
+                <!-- Player 2 -->
+                <div class="d-flex justify-content-center align-items-center printPlayer">
+                    <h2 id="player2">PLAYER 2</h2>
+                    <span class="pl-2"></span>
+                    <img src="img/iconRedDot.svg" alt="point rouge montrant que le joueur en cours est le player 2" id="dotP2"> 
+                </div>
+
+                <!-- Global score player 2 -->
+                <p id="globalScoreP2" class="globalScore text-center">0</p>
+
+                <!-- Round score player 2 -->
+                <div class="card bg-card d-block mx-auto text-center">
+                    <div class="card-body">
+                        <h3 class="card-title text-dark">CURRENT</h3>
+                        <p id="currentScoreP2" class="card-text text-white">0</p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-
-
-
-
 
 
 
