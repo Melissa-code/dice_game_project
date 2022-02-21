@@ -5,6 +5,9 @@ const rollDiceLink = document.getElementById("rollDiceLink");
 let diceNumbers = [1, 2, 3, 4, 5, 6]; 
 let diceRolling = 0;
 
+let roundScoreText;
+let roundScore; 
+
 
 
 /* *************************************************************** */
@@ -78,18 +81,27 @@ class Player {
         this.globalScore = globalScore;
     }
 
-
-    /***** Roll the dice ***** */
+    /* ***** Roll the dice ***** */
 
     rollTheDice(diceResult) {
         diceResult = this.dice.diceNumbers;
         diceRolling = diceResult[Math.floor(Math.random() * diceResult.length)];
         console.log(diceRolling); 
-
         this.dice.printDice();
-
+        this.addRoundScore(diceRolling);
         return diceRolling;
     }
+
+    /* ****** Add round score  ***** */
+
+    addRoundScore(diceResult) {
+        this.roundScore += diceResult;
+        console.log('Total round : ' + this.roundScore);
+        roundScore = this.roundScore; 
+        roundScoreText = document.getElementById('roundScoreP1').innerHTML = this.roundScore;
+        return this.roundScore;
+    }
+
 }
 
 
@@ -100,7 +112,7 @@ class Player {
 /* **************************************************************** */
 
 
-/* ********** Instances ************ */
+/* ********** Class instances ************ */
 
 let dice = new Dice(diceRolling, diceNumbers); 
 let player1 = new Player('Player 1', dice,  0, 0);
