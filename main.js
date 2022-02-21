@@ -5,6 +5,8 @@ const rollDiceLink = document.getElementById("rollDiceLink");
 let diceNumbers = [1, 2, 3, 4, 5, 6]; 
 let diceRolling = 0;
 
+let activePlayer; 
+
 let roundScoreText;
 let roundScore; 
 
@@ -81,6 +83,12 @@ class Player {
         this.globalScore = globalScore;
     }
 
+    /* ***** Get the identity ***** */
+
+    getIdentity() {
+        return `${this.name}`;
+    }
+
     /* ***** Roll the dice ***** */
 
     rollTheDice(diceResult) {
@@ -88,8 +96,46 @@ class Player {
         diceRolling = diceResult[Math.floor(Math.random() * diceResult.length)];
         console.log(diceRolling); 
         this.dice.printDice();
-        this.addRoundScore(diceRolling);
+
+        if(diceRolling === 1) {
+            this.skipTheTurn();
+        } else {
+            this.addRoundScore(diceRolling); 
+        }
+        /*this.addRoundScore(diceRolling);*/
+
         return diceRolling;
+    }
+
+    /* *****  Skip the turn  ***** */
+
+    skipTheTurn() {    
+        /*info.innerHTML = `Le ${this.getIdentity()} skips the turn !`;*/
+        alert(`Le ${this.getIdentity()} skips the turn !`);
+        this.roundScore = 0;
+        roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
+        this.switchPlayer();
+    }
+
+    /* *****  Switch the player  ***** */
+
+    switchPlayer() {
+        console.log(`joueur en cours : ${activePlayer.name}`)
+    
+        if(activePlayer === player1) {
+            this.roundScore = 0;
+            roundScoreText = document.getElementById('roundScoreP1').innerHTML = this.roundScore;
+            console.log(`${activePlayer.name} a fini de jouer`); 
+            activePlayer = player2; 
+            console.log(`C'est au tour de ${activePlayer.name} de jouer`); 
+        } else {
+            this.currentScore = 0;
+            roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
+            console.log(`${activePlayer.name} a fini de jouer`); 
+            activePlayer = player1; 
+            console.log(`C'est au tour de ${activePlayer.name} de jouer !`); 
+        }
+        return activePlayer; 
     }
 
     /* ****** Add round score  ***** */
@@ -97,8 +143,15 @@ class Player {
     addRoundScore(diceResult) {
         this.roundScore += diceResult;
         console.log('Total round : ' + this.roundScore);
-        roundScore = this.roundScore; 
-        roundScoreText = document.getElementById('roundScoreP1').innerHTML = this.roundScore;
+
+        if(activePlayer === player1){
+            roundScore = this.roundScore; 
+            roundScoreText = document.getElementById('roundScoreP1').innerHTML = this.roundScore;
+            
+        } else {
+            roundScore = this.roundScore; 
+            roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
+        }
         return this.roundScore;
     }
 
@@ -108,7 +161,7 @@ class Player {
 
 
 /* **************************************************************** */
-/* code du jeu  */
+/* Main  */
 /* **************************************************************** */
 
 
@@ -119,9 +172,10 @@ let player1 = new Player('Player 1', dice,  0, 0);
 let player2 = new Player('Player 2', dice, 0, 0); 
 let game = new Game([player1, player2]); 
 
+activePlayer = player1; 
 
 
 /* *********** Events ************ */
 
 rollDiceLink.addEventListener("click", () => {
-    player1.rollTheDice(diceNumbers) }, false);
+    activePlayer.rollTheDice(diceNumbers) }, false);
