@@ -1,5 +1,6 @@
 const diceSide = document.getElementById("diceSide");
 
+const newGame = document.getElementById("newGameLink");
 const rollDiceLink = document.getElementById("rollDiceLink");
 const holdLink = document.getElementById("holdLink");
 
@@ -222,7 +223,6 @@ class Player {
 
 
 
-
 /* **************************************************************** */
 /* Main  */
 /* **************************************************************** */
@@ -239,6 +239,8 @@ activePlayer = player1;
 
 
 /* *********** Click Events ************ */
+
+newGame.addEventListener("click",() => location.reload(), false); 
 
 rollDiceLink.addEventListener("click", () => {
     activePlayer.rollTheDice(diceNumbers) }, false);

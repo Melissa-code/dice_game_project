@@ -56,6 +56,7 @@ h2, p {
 }
 
 /* Red dot showing the active player */ 
+
 #dotP1, #dotP2 {
     width: 1.5vh;
     display: none;
