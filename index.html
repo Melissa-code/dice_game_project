@@ -31,9 +31,9 @@
         <!-- FIRST SECTION -->
         <!----------------------------------------------------------------------------------------------------->
 
-        <section class="row pt-4">
+        <section id="firstSection" class="row pt-4">
 
-            <div class="col">
+            <article class="col">
 
                 <!-- Link New Game -->
                 <a href="#" id="newGame" class="d-flex justify-content-center align-items-center">
@@ -42,7 +42,7 @@
                     NEW GAME
                 </a>
 
-            </div>
+            </article>
         </section>
 
 
@@ -50,15 +50,15 @@
         <!-- SECOND SECTION -->
         <!----------------------------------------------------------------------------------------------------->
 
-        <div class="row pt-5">
+        <section id="secondSection" class="row pt-5">
 
             <!--------------- Player 1 zone -------------->
-            <div class="col-md-4">
+            <article class="col-md-4">
 
                 <!-- Player 1 -->
                 <div class="d-flex justify-content-center align-items-center printPlayer">
                     <h2 id="player1">PLAYER 1</h2>
-                    <span class="pl-2"></span>
+                    <span class="pl-3"></span>
                     <img src="img/iconRedDot.svg" alt="point rouge montrant que le joueur en cours est le player 1" id="dotP1"> 
                 </div>
 
@@ -73,39 +73,43 @@
                     </div>
                 </div>
 
-            </div>
+            </article>
 
 
             <!------------- Dice and links zone ------------->
-            <div id="printSideDice" class="col-md-4 text-center pt-5 pt-md-5">
+            <article id="printSideDice" class="col-md-4 text-center pt-5 pt-md-5">
 
                 <!-- Dice -->
-                <img src="img/dice1.svg" alt="face du dé" style="width: 4em; height: 4em;"> 
+                <img src="img/dice1.svg" alt="face du dé" id="dice"> 
 
-                 <!-- Roll the dice link -->
-                 <p class="pt-4 pt-md-5"><a href="#" id="rollDiceLink">
-                    <img src="img/iconRefresh.svg" alt="lancer le dé" class="icons">
-                    <span class="pl-2"></span>
-                    ROLL DICE
-                </a></p>
+                <!-- Roll the dice link -->
+                <div class="pt-3 pt-md-0">
+                    <a href="#" id="rollDiceLink">
+                        <img src="img/iconRefresh.svg" alt="lancer le dé" class="icons">
+                        <span class="pl-2"></span>
+                        ROLL DICE
+                    </a>
+                </div>
                 
                 <!-- Hold link -->
-                <p><a href="#" id="holdLink">
-                    <img src="img/iconDownload.svg" alt="Ajouter les points au score global" class="icons">
-                    <span class="pl-2"></span>
-                    HOLD
-                </a></p>
+                <div class="pt-3 pt-md-5">
+                    <a href="#" id="holdLink">
+                        <img src="img/iconDownload.svg" alt="Ajouter les points au score global" class="icons">
+                        <span class="pl-2"></span>
+                        HOLD
+                    </a>
+                </div>
            
-            </div>
+            </article>
 
            
             <!--------------- Player 2 zone ----------------->
-            <div class="col-md-4 py-5 pt-md-0">
+            <article class="col-md-4 py-5 pt-md-0">
 
                 <!-- Player 2 -->
                 <div class="d-flex justify-content-center align-items-center printPlayer">
                     <h2 id="player2">PLAYER 2</h2>
-                    <span class="pl-2"></span>
+                    <span class="pl-3"></span>
                     <img src="img/iconRedDot.svg" alt="point rouge montrant que le joueur en cours est le player 2" id="dotP2"> 
                 </div>
 
@@ -119,10 +123,10 @@
                         <p id="currentScoreP2" class="card-text text-white">0</p>
                     </div>
                 </div>
-            </div>
+            </article>
 
 
-        </div>
+        </section>
 
 
 

@@ -1,5 +1,5 @@
 *, ::before, ::after {
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -7,8 +7,11 @@
 body {
     font-family: 'Lato', sans-serif;
     color: #696969;
-    height: 100vh;
+    height: 100vh; 
+    font-size: 62.5%;
 }
+
+/* Container */ 
 
 #game-board {
     background-image: url('img/bgGray.png');
@@ -17,7 +20,7 @@ body {
     background-size: 50% 100%; /* 50% horizontal and 100% vertical */ 
     min-width: 100%;
     min-height: 100%;
-    border: 1vh solid transparent;
+    border: 1.5vh solid transparent;
     border-image: linear-gradient( rgba(182, 173, 144, 1), rgba(147, 102, 57, 1), rgba(88, 47, 14, 1), rgba(127, 79, 36, 1));
     border-image-slice: 30;
 }
@@ -26,8 +29,10 @@ h1 {
     display: none;
 }
 
+/* Links */
+
 a {
-    font-size: 13px;
+    font-size: 2vh;
     color: #696969;
 }
 
@@ -37,9 +42,10 @@ a:hover {
 }
 
 .icons {
-    width: 1em;
-    height: 1em;
+    width: 2.5vw;
 }
+
+/* Player */ 
 
 h2, p {
     font-size: 3vh;
@@ -49,29 +55,148 @@ h2, p {
     width: 100%;
 }
 
+/* Red dot showing the active player */ 
 #dotP1, #dotP2 {
     width: 1.5vh;
     /*display: none;*/
 }
 
+/* Global score */ 
+
 .globalScore {
-    font-size: 8vh;
+    font-size: 10vh;
     font-weight: lighter;
     color: #E5383B;
 }
+
+/* Dice */ 
+
+#dice {
+    width: 15vw; 
+}
+
+/* Round score */ 
 
 .bg-card {
     background-color: #E5383B;
     border-radius: 0%;
     color: #161A1D;
+
     width: 8rem;
-    height: 6rem;
+    height: 7.5rem;
 }
 
 h3 {
-    font-size: 0.7rem;
+    font-size: 1.5vh;
+    font-weight: bold;
 }
 
 #currentScoreP1, #currentScoreP2 {
-    font-size: 1.5rem;
+    font-size: 4vh;
 }
+
+
+
+/* ********************************************************************************************** */ 
+/*  Media queries */ 
+/* ********************************************************************************************** */ 
+
+/* Tablets and netbooks */ 
+
+@media screen and (min-width: 768px) {
+
+    #game-board {
+        border: 2vh solid transparent;
+        border-image: linear-gradient( rgba(182, 173, 144, 1), rgba(147, 102, 57, 1), rgba(88, 47, 14, 1), rgba(127, 79, 36, 1));
+        border-image-slice: 30;
+    }
+    #firstSection {
+        margin: 5vh 0 5vh 0;
+    }
+    #secondSection {
+        margin: 3vh 0 3vh 0;
+    }
+    h2 {
+        font-size: 3.5vh;
+    }
+    .globalScore {
+        font-size: 12vh;
+    }
+    #dice {
+        width: 10vw; 
+        margin-top: 2rem;
+        margin-bottom: 16rem;
+    }
+    .bg-card {
+        /*margin-top: 15vh;*/
+        margin-top: 10rem;
+        width: 9rem;
+        height: 8rem;
+    }
+}
+
+/* Laptops */
+
+@media screen and (min-width: 993px) {
+
+    #secondSection {
+        margin: 5vh;
+    }
+    a {
+        font-size: 2.3vh;
+    }
+    h2 {
+        font-size: 3.7vh;
+    } 
+    #dotP1, #dotP2 {
+        width: 2vh;
+        /*display: none;*/
+    }
+    .globalScore {
+        font-size: 13vh;
+    }
+    #dice {
+        margin-top: 0rem;
+        margin-bottom: 7rem;
+    }
+    .bg-card {
+        margin-top: 7rem;
+        width: 10rem;
+        height: 8rem;
+    }
+    h3 {
+        font-size: 1.8vh;
+    }
+}
+
+/* Desktop computers */ 
+
+@media screen and (min-width: 1201px) {
+
+    #secondSection {
+        margin: 0 7vh 0 7vh;
+    }
+    h2 {
+        font-size: 4.5vh;
+    }
+    #dotP1, #dotP2 {
+        width: 2.5vh;
+        /*display: none;*/
+    }
+    .globalScore {
+        font-size: 15vh;
+    }
+    #dice {
+        margin-top: 2rem;
+        margin-bottom: 9rem;
+    }
+    .bg-card {
+        margin-top: 7rem;
+        width: 11rem;
+        height: 9rem;
+    }
+    #currentScoreP1, #currentScoreP2 {
+        font-size: 4.5vh;
+    }
+}
+
