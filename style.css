@@ -71,8 +71,9 @@ h2, p {
 
 /* Dice */ 
 
-#dice {
-    width: 15vw; 
+#diceSide {
+    /*width: 15vw; */
+    margin-bottom: 10rem;
 }
 
 /* Round score */ 

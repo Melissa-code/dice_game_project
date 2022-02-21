@@ -1,5 +1,7 @@
 const diceSide = document.getElementById("diceSide");
 
+const rollDiceLink = document.getElementById("rollDiceLink");
+
 let diceNumbers = [1, 2, 3, 4, 5, 6]; 
 let diceRolling = 0;
 
@@ -28,7 +30,7 @@ class Dice {
         this.diceNumbers = diceNumbers;
     }
 
-    /***** get image of the dice ***** */
+    /***** Get image of the dice ***** */
 
     getImage(valeur) {
         let imgTxt = "img/"; 
@@ -51,7 +53,7 @@ class Dice {
         return imgTxt;
     }
 
-    /***** print the result of the dice rolling ***** */
+    /***** Print the result of the dice rolling ***** */
 
     printDice() {
         var txt = ""; 
@@ -60,7 +62,6 @@ class Dice {
         txt += "</div>";
         diceSide.innerHTML = txt; 
     }
-
 }
 
 
@@ -78,9 +79,9 @@ class Player {
     }
 
 
-    /***** roll the dice ***** */
+    /***** Roll the dice ***** */
 
-    rollThedice(diceResult) {
+    rollTheDice(diceResult) {
         diceResult = this.dice.diceNumbers;
         diceRolling = diceResult[Math.floor(Math.random() * diceResult.length)];
         console.log(diceRolling); 
@@ -99,11 +100,16 @@ class Player {
 /* **************************************************************** */
 
 
-/* ******************* Instances de classes ********************** */
+/* ********** Instances ************ */
 
 let dice = new Dice(diceRolling, diceNumbers); 
 let player1 = new Player('Player 1', dice,  0, 0);
 let player2 = new Player('Player 2', dice, 0, 0); 
 let game = new Game([player1, player2]); 
 
-player1.rollThedice(diceNumbers);
+
+
+/* *********** Events ************ */
+
+rollDiceLink.addEventListener("click", () => {
+    player1.rollTheDice(diceNumbers) }, false);
