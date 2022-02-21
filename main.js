@@ -1,6 +1,7 @@
 const diceSide = document.getElementById("diceSide");
 
 const rollDiceLink = document.getElementById("rollDiceLink");
+const holdLink = document.getElementById("holdLink");
 
 const printPlayer = document.getElementsByClassName("printPlayer");
 
@@ -11,7 +12,8 @@ let activePlayer;
 
 let roundScoreText;
 let roundScore; 
-
+let globalScoreText;
+let globalScore;
 
 
 /* *************************************************************** */
@@ -106,7 +108,6 @@ class Player {
         } else {
             this.addRoundScore(diceRolling); 
         }
-        /*this.addRoundScore(diceRolling);*/
 
         return diceRolling;
     }
@@ -133,7 +134,7 @@ class Player {
             activePlayer = player2; 
             console.log(`C'est au tour de ${activePlayer.name} de jouer`); 
         } else {
-            this.currentScore = 0;
+            this.roundScore = 0;
             roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
             console.log(`${activePlayer.name} a fini de jouer`); 
             activePlayer = player1; 
@@ -166,7 +167,7 @@ class Player {
         }
     }
 
-    /* ****** Add round score  ***** */
+    /* ****** Add the round score  ***** */
 
     addRoundScore(diceResult) {
         this.roundScore += diceResult;
@@ -182,6 +183,31 @@ class Player {
         }
         return this.roundScore;
     }
+
+    /* ****** Add the global score  ***** */
+
+    addGlobalScore(roundsadded) {
+        this.globalScore += roundsadded;
+
+        console.log('global score: ' + this.globalScore); 
+        
+        if(activePlayer === player1 && this.globalScore > 0) {
+            globalScore += this.globalScore;
+            globalScoreText = document.getElementById('globalScoreP1').innerHTML = this.globalScore;
+            console.log('global score: ' + this.globalScore);
+        } else {
+            globalScore += this.globalScore;
+            globalScoreText = document.getElementById('globalScoreP2').innerHTML = this.globalScore;
+            console.log('global score: ' + this.globalScore);
+        }
+        this.switchPlayer();
+
+        return this.globalScore;
+    }
+
+   
+
+    
 
 }
 
@@ -203,7 +229,10 @@ let game = new Game([player1, player2]);
 activePlayer = player1; 
 
 
-/* *********** Events ************ */
+/* *********** Click Events ************ */
 
 rollDiceLink.addEventListener("click", () => {
     activePlayer.rollTheDice(diceNumbers) }, false);
+
+holdLink.addEventListener("click", () => {
+    activePlayer.addGlobalScore(roundScore)}, false);
