@@ -4,6 +4,7 @@ const rollDiceLink = document.getElementById("rollDiceLink");
 const holdLink = document.getElementById("holdLink");
 
 const printPlayer = document.getElementsByClassName("printPlayer");
+const infoWinner = document.getElementById("infoWinner");
 
 let diceNumbers = [1, 2, 3, 4, 5, 6]; 
 let diceRolling = 0;
@@ -87,13 +88,13 @@ class Player {
         this.globalScore = globalScore;
     }
 
-    /* ***** Get the identity ***** */
+    /* ******************* Get the identity **************** */
 
     getIdentity() {
         return `${this.name}`;
     }
 
-    /* ***** Roll the dice ***** */
+    /* ******************* Roll the dice ******************* */
 
     rollTheDice(diceResult) {
         diceResult = this.dice.diceNumbers;
@@ -112,7 +113,7 @@ class Player {
         return diceRolling;
     }
 
-    /* *****  Skip the turn  ***** */
+    /* ******************  Skip the turn  ******************** */
 
     skipTheTurn() {    
         /*info.innerHTML = `Le ${this.getIdentity()} skips the turn !`;*/
@@ -122,7 +123,7 @@ class Player {
         this.switchPlayer();
     }
 
-    /* *****  Switch the player  ***** */
+    /* ********************  Switch the player  ***************** */
 
     switchPlayer() {
         console.log(`joueur en cours : ${activePlayer.name}`)
@@ -143,7 +144,7 @@ class Player {
         return activePlayer; 
     }
 
-    /* *****  print the red dot  ***** */
+    /* ******************  print the red dot  ****************** */
 
     printRedDot() {
         for (var i = 0; i < printPlayer.length; i++) {
@@ -167,7 +168,7 @@ class Player {
         }
     }
 
-    /* ****** Add the round score  ***** */
+    /* ****************  Add the round score  *************** */
 
     addRoundScore(diceResult) {
         this.roundScore += diceResult;
@@ -184,7 +185,7 @@ class Player {
         return this.roundScore;
     }
 
-    /* ****** Add the global score  ***** */
+    /* ****************  Add the global score  ************* */
 
     addGlobalScore(roundsadded) {
         this.globalScore += roundsadded;
@@ -200,14 +201,22 @@ class Player {
             globalScoreText = document.getElementById('globalScoreP2').innerHTML = this.globalScore;
             console.log('global score: ' + this.globalScore);
         }
+
+        this.getTheWinner();
         this.switchPlayer();
 
         return this.globalScore;
     }
 
-   
+    /* ******************  Get the winner  ***************** */
 
-    
+    getTheWinner() {
+        if (this.globalScore >= 20) {
+            console.log(`${activePlayer.name} gagne la partie avec le score total de ${activePlayer.globalScore}`); 
+            infoWinner.innerHTML = `${activePlayer.name} gagne la partie avec le score total de ${activePlayer.globalScore}`;
+            setTimeout(window.location.reload.bind(window.location), 3000);
+        }
+    }
 
 }
 
