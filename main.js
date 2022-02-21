@@ -2,6 +2,8 @@ const diceSide = document.getElementById("diceSide");
 
 const rollDiceLink = document.getElementById("rollDiceLink");
 
+const printPlayer = document.getElementsByClassName("printPlayer");
+
 let diceNumbers = [1, 2, 3, 4, 5, 6]; 
 let diceRolling = 0;
 
@@ -95,6 +97,8 @@ class Player {
         diceResult = this.dice.diceNumbers;
         diceRolling = diceResult[Math.floor(Math.random() * diceResult.length)];
         console.log(diceRolling); 
+
+        this.printRedDot() ;
         this.dice.printDice();
 
         if(diceRolling === 1) {
@@ -136,6 +140,30 @@ class Player {
             console.log(`C'est au tour de ${activePlayer.name} de jouer !`); 
         }
         return activePlayer; 
+    }
+
+    /* *****  print the red dot  ***** */
+
+    printRedDot() {
+        for (var i = 0; i < printPlayer.length; i++) {
+            printPlayer[i].style.display = 'none';
+        }
+
+        if(activePlayer === player1) {
+            document.getElementById("dotP1").style.display = 'block';
+            document.getElementById("dotP2").style.display = 'none';
+            document.getElementById("player1").style.color = "#161A1D";
+            document.getElementById("player1").style.fontWeight = "normal";
+            document.getElementById("player2").style.fontWeight = "lighter";
+            document.getElementById("player2").style.color = "#8f8f8f";
+        } else {
+            document.getElementById("dotP2").style.display = 'block';
+            document.getElementById("dotP1").style.display = 'none';
+            document.getElementById("player2").style.color = "#161A1D";
+            document.getElementById("player1").style.color = "#8f8f8f";
+            document.getElementById("player1").style.fontWeight = "lighter";
+            document.getElementById("player2").style.fontWeight = "normal";
+        }
     }
 
     /* ****** Add round score  ***** */

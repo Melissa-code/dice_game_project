@@ -58,7 +58,7 @@ h2, p {
 /* Red dot showing the active player */ 
 #dotP1, #dotP2 {
     width: 1.5vh;
-    /*display: none;*/
+    display: none;
 }
 
 /* Global score */ 
@@ -151,7 +151,6 @@ h3 {
     } 
     #dotP1, #dotP2 {
         width: 2vh;
-        /*display: none;*/
     }
     .globalScore {
         font-size: 13vh;
@@ -182,7 +181,6 @@ h3 {
     }
     #dotP1, #dotP2 {
         width: 2.5vh;
-        /*display: none;*/
     }
     .globalScore {
         font-size: 15vh;
