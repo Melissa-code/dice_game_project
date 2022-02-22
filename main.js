@@ -6,6 +6,7 @@ const holdLink = document.getElementById("holdLink");
 
 const printPlayer = document.getElementsByClassName("printPlayer");
 const infoWinner = document.getElementById("infoWinner");
+const emoji = ['😃', '🙁'];
 
 let diceNumbers = [1, 2, 3, 4, 5, 6]; 
 let diceRolling = 0;
@@ -19,7 +20,7 @@ let globalScore;
 
 
 /* *************************************************************** */
-/* class Game  */
+/*                      class Game  */
 /* *************************************************************** */
 
 class Game {
@@ -31,7 +32,7 @@ class Game {
 
 
 /* *************************************************************** */
-/* class Dice  */
+/*                      class Dice  */
 /* *************************************************************** */
 
 class Dice {
@@ -41,7 +42,7 @@ class Dice {
         this.diceNumbers = diceNumbers;
     }
 
-    /***** Get image of the dice ***** */
+    /************************* Get image of the dice ******************* */
 
     getImage(valeur) {
         let imgTxt = "img/"; 
@@ -64,7 +65,7 @@ class Dice {
         return imgTxt;
     }
 
-    /***** Print the result of the dice rolling ***** */
+    /**************** Print the result of the dice rolling ********** */
 
     printDice() {
         var txt = ""; 
@@ -77,7 +78,7 @@ class Dice {
 
 
 /* *************************************************************** */
-/* class Player */
+/*                          class Player */
 /* *************************************************************** */
 
 class Player {
@@ -100,7 +101,6 @@ class Player {
     rollTheDice(diceResult) {
         diceResult = this.dice.diceNumbers;
         diceRolling = diceResult[Math.floor(Math.random() * diceResult.length)];
-        console.log(diceRolling); 
 
         this.printRedDot() ;
         this.dice.printDice();
@@ -117,8 +117,8 @@ class Player {
     /* ******************  Skip the turn  ******************** */
 
     skipTheTurn() {    
-        /*info.innerHTML = `Le ${this.getIdentity()} skips the turn !`;*/
-        alert(`Le ${this.getIdentity()} skips the turn !`);
+        alert(`The ${this.getIdentity()} misses his turn !  ${emoji[1]}`);
+
         this.roundScore = 0;
         roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
         this.switchPlayer();
@@ -127,20 +127,14 @@ class Player {
     /* ********************  Switch the player  ***************** */
 
     switchPlayer() {
-        console.log(`joueur en cours : ${activePlayer.name}`)
-    
         if(activePlayer === player1) {
             this.roundScore = 0;
             roundScoreText = document.getElementById('roundScoreP1').innerHTML = this.roundScore;
-            console.log(`${activePlayer.name} a fini de jouer`); 
             activePlayer = player2; 
-            console.log(`C'est au tour de ${activePlayer.name} de jouer`); 
         } else {
             this.roundScore = 0;
             roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
-            console.log(`${activePlayer.name} a fini de jouer`); 
             activePlayer = player1; 
-            console.log(`C'est au tour de ${activePlayer.name} de jouer !`); 
         }
         return activePlayer; 
     }
@@ -173,12 +167,10 @@ class Player {
 
     addRoundScore(diceResult) {
         this.roundScore += diceResult;
-        console.log('Total round : ' + this.roundScore);
 
         if(activePlayer === player1){
             roundScore = this.roundScore; 
             roundScoreText = document.getElementById('roundScoreP1').innerHTML = this.roundScore;
-            
         } else {
             roundScore = this.roundScore; 
             roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
@@ -190,8 +182,6 @@ class Player {
 
     addGlobalScore(roundsadded) {
         this.globalScore += roundsadded;
-
-        console.log('global score: ' + this.globalScore); 
         
         if(activePlayer === player1 && this.globalScore > 0) {
             globalScore += this.globalScore;
@@ -212,19 +202,17 @@ class Player {
     /* ******************  Get the winner  ***************** */
 
     getTheWinner() {
-        if (this.globalScore >= 20) {
-            console.log(`${activePlayer.name} gagne la partie avec le score total de ${activePlayer.globalScore}`); 
-            infoWinner.innerHTML = `${activePlayer.name} gagne la partie avec le score total de ${activePlayer.globalScore}`;
-            setTimeout(window.location.reload.bind(window.location), 3000);
+        if (this.globalScore >= 100) {
+            infoWinner.innerHTML = `The ${activePlayer.name} wins the game !  ${emoji[0]}`;
+            setTimeout(window.location.reload.bind(window.location), 4000);
         }
     }
-
 }
 
 
 
 /* **************************************************************** */
-/* Main  */
+/*                          Main  */
 /* **************************************************************** */
 
 

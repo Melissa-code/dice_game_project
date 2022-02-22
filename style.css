@@ -55,7 +55,7 @@ h2, p {
     width: 100%;
 }
 
-/* Red dot showing the active player */ 
+/* Red dot displaying the active player */ 
 
 #dotP1, #dotP2 {
     width: 1.5vh;
@@ -70,20 +70,12 @@ h2, p {
     color: #E5383B;
 }
 
-/* Dice */ 
-
-#diceSide {
-    /*width: 15vw; */
-    margin-bottom: 10rem;
-}
-
 /* Round score */ 
 
 .bg-card {
     background-color: #E5383B;
     border-radius: 0%;
     color: #161A1D;
-
     width: 8rem;
     height: 7.5rem;
 }
@@ -93,17 +85,24 @@ h3 {
     font-weight: bold;
 }
 
-#currentScoreP1, #currentScoreP2 {
+#roundScoreP1, #roundScoreP2 {
     font-size: 4vh;
+}
+
+#infoWinner {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #BA181B;
 }
 
 
 
 /* ********************************************************************************************** */ 
-/*  Media queries */ 
+/*                                      Media queries */ 
 /* ********************************************************************************************** */ 
 
-/* Tablets and netbooks */ 
+
+/* **********  Tablets and netbooks  ************ */ 
 
 @media screen and (min-width: 768px) {
 
@@ -124,20 +123,21 @@ h3 {
     .globalScore {
         font-size: 12vh;
     }
-    #dice {
-        width: 10vw; 
+    #diceSide {
         margin-top: 2rem;
         margin-bottom: 16rem;
     }
     .bg-card {
-        /*margin-top: 15vh;*/
         margin-top: 10rem;
         width: 9rem;
         height: 8rem;
     }
+    #infoWinner {
+        font-size: 2rem;
+    }
 }
 
-/* Laptops */
+/* *************  Laptops  ************* */
 
 @media screen and (min-width: 993px) {
 
@@ -148,7 +148,7 @@ h3 {
         font-size: 2.3vh;
     }
     h2 {
-        font-size: 3.7vh;
+        font-size: 3.8vh;
     } 
     #dotP1, #dotP2 {
         width: 2vh;
@@ -156,8 +156,8 @@ h3 {
     .globalScore {
         font-size: 13vh;
     }
-    #dice {
-        margin-top: 0rem;
+    #diceSide {
+        margin-top: 1rem;
         margin-bottom: 7rem;
     }
     .bg-card {
@@ -170,7 +170,7 @@ h3 {
     }
 }
 
-/* Desktop computers */ 
+/* **********  Desktop computers  ********** */ 
 
 @media screen and (min-width: 1201px) {
 
@@ -186,16 +186,10 @@ h3 {
     .globalScore {
         font-size: 15vh;
     }
-    #dice {
-        margin-top: 2rem;
-        margin-bottom: 9rem;
+    #diceSide {
+        margin-bottom: 12rem;
     }
-    .bg-card {
-        margin-top: 7rem;
-        width: 11rem;
-        height: 9rem;
-    }
-    #currentScoreP1, #currentScoreP2 {
+    #roundScoreP1, #roundScoreP2 {
         font-size: 4.5vh;
     }
 }
