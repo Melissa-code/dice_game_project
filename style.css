@@ -8,7 +8,7 @@ body {
     font-family: 'Lato', sans-serif;
     color: #696969;
     height: 100vh; 
-    font-size: 62.5%;
+    font-size: 62.5%; /* about 10px */ 
 }
 
 /* Container */ 
@@ -32,7 +32,7 @@ h1 {
 /* Links */
 
 a {
-    font-size: 2vh;
+    font-size:2vh;
     color: #696969;
 }
 
@@ -42,12 +42,12 @@ a:hover {
 }
 
 .icons {
-    width: 2.5vw;
+    width: 2vh;
 }
 
 /* Player */ 
 
-h2, p {
+h2 {
     font-size: 3vh;
 }
 
@@ -58,14 +58,14 @@ h2, p {
 /* Red dot displaying the active player */ 
 
 #dotP1, #dotP2 {
-    width: 1.5vh;
+    width: 2vh;
     display: none;
 }
 
 /* Global score */ 
 
 .globalScore {
-    font-size: 10vh;
+    font-size: 6vh;
     font-weight: lighter;
     color: #E5383B;
 }
@@ -76,8 +76,8 @@ h2, p {
     background-color: #E5383B;
     border-radius: 0%;
     color: #161A1D;
-    width: 8rem;
-    height: 7.5rem;
+    width: 7.5rem;
+    height: 6rem;
 }
 
 h3 {
@@ -86,7 +86,7 @@ h3 {
 }
 
 #roundScoreP1, #roundScoreP2 {
-    font-size: 4vh;
+    font-size: 3vh;
 }
 
 #infoWinner {
@@ -97,100 +97,87 @@ h3 {
 
 
 
-/* ********************************************************************************************** */ 
-/*                                      Media queries */ 
-/* ********************************************************************************************** */ 
+/* ******************************************************************************* */ 
+/*                              Media queries */ 
+/* ******************************************************************************* */ 
 
 
-/* **********  Tablets and netbooks  ************ */ 
+/* **************** Mobile phones : orientation landscape orientation  ************** */ 
 
-@media screen and (min-width: 768px) {
+@media only screen and (min-width: 576px) and (orientation: landscape) {
+
+    #firstSection, #secondSection {
+        margin: 0 3vh 0 3vh; /* top right bottom left */ 
+    }
+    a {
+        font-size: 3vh;
+    }
+    .icons, #dotP1, #dotP2 {
+        width: 3vh;
+    }
+    h2, #roundScoreP1, #roundScoreP2 {
+        font-size: 4.8vh;
+    }
+    .globalScore {
+        font-size: 12vh;
+    }
+    #diceSide { 
+        margin-bottom: 3rem;
+    }
+    .bg-card {
+        margin-top: 7rem; 
+        width: 6.5rem;
+        height: 5rem;
+    }
+    h3 {
+        font-size: 2vh;
+    }
+   
+}
+
+
+/* ****  Mobile phones and Tablets : landscape orientation  **** */ 
+
+@media screen and (min-width: 700px) and (orientation: landscape) {
+
+    .icons {
+        width: 4vh;
+    }
+    #diceSide { 
+        margin-bottom: 3rem;
+    }
+    .bg-card {
+        width: 8rem;
+        height: 6.5rem;
+        margin-top: 6rem;
+    }
+}
+
+/* *** Tablets, laptops and desktop computer : landscape orientation  ********** */ 
+
+@media screen and (min-width: 950px) and (orientation: landscape) { 
 
     #game-board {
         border: 2vh solid transparent;
         border-image: linear-gradient( rgba(182, 173, 144, 1), rgba(147, 102, 57, 1), rgba(88, 47, 14, 1), rgba(127, 79, 36, 1));
         border-image-slice: 30;
     }
-    #firstSection {
-        margin: 5vh 0 5vh 0;
+    #firstSection, #secondSection {
+        margin: 0 5vh 0 5vh; 
     }
-    #secondSection {
-        margin: 3vh 0 3vh 0;
-    }
-    h2 {
-        font-size: 3.5vh;
-    }
-    .globalScore {
-        font-size: 12vh;
+    .icons {
+        width: 3.5vh;
     }
     #diceSide {
         margin-top: 2rem;
-        margin-bottom: 16rem;
+        margin-bottom: 11rem;
     }
     .bg-card {
-        margin-top: 10rem;
-        width: 9rem;
+        width: 9.5rem;
         height: 8rem;
+        margin-top: 11rem;
     }
     #infoWinner {
         font-size: 2rem;
     }
 }
-
-/* *************  Laptops  ************* */
-
-@media screen and (min-width: 993px) {
-
-    #secondSection {
-        margin: 5vh;
-    }
-    a {
-        font-size: 2.3vh;
-    }
-    h2 {
-        font-size: 3.8vh;
-    } 
-    #dotP1, #dotP2 {
-        width: 2vh;
-    }
-    .globalScore {
-        font-size: 13vh;
-    }
-    #diceSide {
-        margin-top: 1rem;
-        margin-bottom: 7rem;
-    }
-    .bg-card {
-        margin-top: 7rem;
-        width: 10rem;
-        height: 8rem;
-    }
-    h3 {
-        font-size: 1.8vh;
-    }
-}
-
-/* **********  Desktop computers  ********** */ 
-
-@media screen and (min-width: 1201px) {
-
-    #secondSection {
-        margin: 0 7vh 0 7vh;
-    }
-    h2 {
-        font-size: 4.5vh;
-    }
-    #dotP1, #dotP2 {
-        width: 2.5vh;
-    }
-    .globalScore {
-        font-size: 15vh;
-    }
-    #diceSide {
-        margin-bottom: 12rem;
-    }
-    #roundScoreP1, #roundScoreP2 {
-        font-size: 4.5vh;
-    }
-}
-

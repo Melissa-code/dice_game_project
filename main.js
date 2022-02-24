@@ -186,11 +186,9 @@ class Player {
         if(activePlayer === player1 && this.globalScore > 0) {
             globalScore += this.globalScore;
             globalScoreText = document.getElementById('globalScoreP1').innerHTML = this.globalScore;
-            console.log('global score: ' + this.globalScore);
         } else {
             globalScore += this.globalScore;
             globalScoreText = document.getElementById('globalScoreP2').innerHTML = this.globalScore;
-            console.log('global score: ' + this.globalScore);
         }
 
         this.getTheWinner();
@@ -218,6 +216,8 @@ class Player {
 
 /* ********** Class instances ************ */
 
+screen.orientation.lock("landscape-primary");
+
 let dice = new Dice(diceRolling, diceNumbers); 
 let player1 = new Player('Player 1', dice,  0, 0);
 let player2 = new Player('Player 2', dice, 0, 0); 
@@ -227,6 +227,7 @@ activePlayer = player1;
 
 
 /* *********** Click Events ************ */
+
 
 newGame.addEventListener("click",() => location.reload(), false); 
 
