@@ -102,7 +102,7 @@ h3 {
 /* ******************************************************************************* */ 
 
 
-/* **************** Mobile phones : orientation landscape orientation  ************** */ 
+/* ************  Mobile phones : landscape orientation  ************** */ 
 
 @media only screen and (min-width: 576px) and (orientation: landscape) {
 
@@ -110,53 +110,53 @@ h3 {
         margin: 0 3vh 0 3vh; /* top right bottom left */ 
     }
     a {
-        font-size: 3vh;
+        font-size: 4vh; 
     }
     .icons, #dotP1, #dotP2 {
-        width: 3vh;
+        width: 4vh;
     }
-    h2, #roundScoreP1, #roundScoreP2 {
-        font-size: 4.8vh;
+    h2 {
+        font-size: 6vh; 
     }
     .globalScore {
-        font-size: 12vh;
-    }
-    #diceSide { 
-        margin-bottom: 3rem;
+        font-size: 14vh;
     }
     .bg-card {
-        margin-top: 7rem; 
         width: 6.5rem;
         height: 5rem;
+        margin-top: 2rem; 
     }
     h3 {
         font-size: 2vh;
     }
-   
+    #roundScoreP1, #roundScoreP2{
+        font-size: 5vh;
+    }
 }
 
 
-/* ****  Mobile phones and Tablets : landscape orientation  **** */ 
+/* ******************  Mobile phones and Tablets ******************** */ 
 
 @media screen and (min-width: 700px) and (orientation: landscape) {
 
-    .icons {
-        width: 4vh;
-    }
     #diceSide { 
-        margin-bottom: 3rem;
+        margin-bottom: 1rem; 
     }
     .bg-card {
         width: 8rem;
         height: 6.5rem;
-        margin-top: 6rem;
+        margin-top: 3.5rem;
     }
 }
 
-/* *** Tablets, laptops and desktop computer : landscape orientation  ********** */ 
+
+/* ****************** Tablets, laptops and computer   **************** */ 
 
 @media screen and (min-width: 950px) and (orientation: landscape) { 
 
+    a {
+        font-size: 3vh; 
+    } 
     #game-board {
         border: 2vh solid transparent;
         border-image: linear-gradient( rgba(182, 173, 144, 1), rgba(147, 102, 57, 1), rgba(88, 47, 14, 1), rgba(127, 79, 36, 1));
@@ -169,8 +169,8 @@ h3 {
         width: 3.5vh;
     }
     #diceSide {
-        margin-top: 2rem;
-        margin-bottom: 11rem;
+        margin-top: 3rem;
+        margin-bottom: 13rem;
     }
     .bg-card {
         width: 9.5rem;

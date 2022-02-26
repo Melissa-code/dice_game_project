@@ -6,7 +6,7 @@ const holdLink = document.getElementById("holdLink");
 
 const printPlayer = document.getElementsByClassName("printPlayer");
 const infoWinner = document.getElementById("infoWinner");
-const emoji = ['😃', '🙁'];
+const emoji = ["😃", "🙁"];
 
 let diceNumbers = [1, 2, 3, 4, 5, 6]; 
 let diceRolling = 0;
@@ -120,7 +120,7 @@ class Player {
         alert(`The ${this.getIdentity()} misses his turn !  ${emoji[1]}`);
 
         this.roundScore = 0;
-        roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
+        roundScoreText = document.getElementById("roundScoreP2").innerHTML = this.roundScore;
         this.switchPlayer();
     }
 
@@ -129,11 +129,11 @@ class Player {
     switchPlayer() {
         if(activePlayer === player1) {
             this.roundScore = 0;
-            roundScoreText = document.getElementById('roundScoreP1').innerHTML = this.roundScore;
+            roundScoreText = document.getElementById("roundScoreP1").innerHTML = this.roundScore;
             activePlayer = player2; 
         } else {
             this.roundScore = 0;
-            roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
+            roundScoreText = document.getElementById("roundScoreP2").innerHTML = this.roundScore;
             activePlayer = player1; 
         }
         return activePlayer; 
@@ -143,19 +143,19 @@ class Player {
 
     printRedDot() {
         for (var i = 0; i < printPlayer.length; i++) {
-            printPlayer[i].style.display = 'none';
+            printPlayer[i].style.display = "none";
         }
 
         if(activePlayer === player1) {
-            document.getElementById("dotP1").style.display = 'block';
-            document.getElementById("dotP2").style.display = 'none';
+            document.getElementById("dotP1").style.display = "block";
+            document.getElementById("dotP2").style.display = "none";
             document.getElementById("player1").style.color = "#161A1D";
             document.getElementById("player1").style.fontWeight = "normal";
             document.getElementById("player2").style.fontWeight = "lighter";
             document.getElementById("player2").style.color = "#8f8f8f";
         } else {
-            document.getElementById("dotP2").style.display = 'block';
-            document.getElementById("dotP1").style.display = 'none';
+            document.getElementById("dotP2").style.display = "block";
+            document.getElementById("dotP1").style.display = "none";
             document.getElementById("player2").style.color = "#161A1D";
             document.getElementById("player1").style.color = "#8f8f8f";
             document.getElementById("player1").style.fontWeight = "lighter";
@@ -170,10 +170,10 @@ class Player {
 
         if(activePlayer === player1){
             roundScore = this.roundScore; 
-            roundScoreText = document.getElementById('roundScoreP1').innerHTML = this.roundScore;
+            roundScoreText = document.getElementById("roundScoreP1").innerHTML = this.roundScore;
         } else {
             roundScore = this.roundScore; 
-            roundScoreText = document.getElementById('roundScoreP2').innerHTML = this.roundScore;
+            roundScoreText = document.getElementById("roundScoreP2").innerHTML = this.roundScore;
         }
         return this.roundScore;
     }
@@ -185,10 +185,10 @@ class Player {
         
         if(activePlayer === player1 && this.globalScore > 0) {
             globalScore += this.globalScore;
-            globalScoreText = document.getElementById('globalScoreP1').innerHTML = this.globalScore;
+            globalScoreText = document.getElementById("globalScoreP1").innerHTML = this.globalScore;
         } else {
             globalScore += this.globalScore;
-            globalScoreText = document.getElementById('globalScoreP2').innerHTML = this.globalScore;
+            globalScoreText = document.getElementById("globalScoreP2").innerHTML = this.globalScore;
         }
 
         this.getTheWinner();
@@ -216,11 +216,9 @@ class Player {
 
 /* ********** Class instances ************ */
 
-screen.orientation.lock("landscape-primary");
-
 let dice = new Dice(diceRolling, diceNumbers); 
-let player1 = new Player('Player 1', dice,  0, 0);
-let player2 = new Player('Player 2', dice, 0, 0); 
+let player1 = new Player("Player 1", dice,  0, 0);
+let player2 = new Player("Player 2", dice, 0, 0); 
 let game = new Game([player1, player2]); 
 
 activePlayer = player1; 
@@ -228,11 +226,16 @@ activePlayer = player1;
 
 /* *********** Click Events ************ */
 
+try {
+    newGame.addEventListener("click",() => location.reload(), false); 
 
-newGame.addEventListener("click",() => location.reload(), false); 
+    rollDiceLink.addEventListener("click", () => {
+        activePlayer.rollTheDice(diceNumbers) }, false);
 
-rollDiceLink.addEventListener("click", () => {
-    activePlayer.rollTheDice(diceNumbers) }, false);
+    holdLink.addEventListener("click", () => {
+        activePlayer.addGlobalScore(roundScore)}, false);
 
-holdLink.addEventListener("click", () => {
-    activePlayer.addGlobalScore(roundScore)}, false);
+} catch(err) {
+    alert(`Error has occurred!`);
+}
+
