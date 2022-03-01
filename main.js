@@ -181,6 +181,9 @@ class Player {
     /* ****************  Add the global score  ************* */
 
     addGlobalScore(roundsadded) {
+        if(roundsadded == null){
+            roundsadded = 0;
+        }
         this.globalScore += roundsadded;
         
         if(activePlayer === player1 && this.globalScore > 0) {
@@ -227,6 +230,7 @@ activePlayer = player1;
 /* *********** Click Events ************ */
 
 try {
+
     newGame.addEventListener("click",() => location.reload(), false); 
 
     rollDiceLink.addEventListener("click", () => {

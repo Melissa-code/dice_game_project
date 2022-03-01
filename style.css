@@ -11,6 +11,18 @@ body {
     font-size: 62.5%; /* about 10px */ 
 }
 
+/* header */ 
+
+h1 {
+    display: none;
+}
+
+/* main */ 
+
+main {
+    margin: 0 2vh;
+}
+
 /* Container */ 
 
 #game-board {
@@ -20,19 +32,15 @@ body {
     background-size: 50% 100%; /* 50% horizontal and 100% vertical */ 
     min-width: 100%;
     min-height: 100%;
-    border: 1.5vh solid transparent;
+    border: 10px solid transparent; 
     border-image: linear-gradient( rgba(182, 173, 144, 1), rgba(147, 102, 57, 1), rgba(88, 47, 14, 1), rgba(127, 79, 36, 1));
     border-image-slice: 30;
 }
 
-h1 {
-    display: none;
-}
-
-/* Links */
+/* Links */ 
 
 a {
-    font-size:2vh;
+    font-size: 2vh; 
     color: #696969;
 }
 
@@ -41,43 +49,40 @@ a:hover {
     color: #B1A7A6;
 }
 
-.icons {
-    width: 2vh;
+.icons, #dotP1, #dotP2 {
+    width: 3vh;
 }
 
-/* Player */ 
+/* Players */ 
 
 h2 {
-    font-size: 3vh;
+    font-size: 4.5vh; 
 }
-
 .printPlayer {
     width: 100%;
 }
-
-/* Red dot displaying the active player */ 
 
 #dotP1, #dotP2 {
     width: 2vh;
     display: none;
 }
 
-/* Global score */ 
+/* Global */ 
 
 .globalScore {
-    font-size: 6vh;
+    font-size: 10vh;
     font-weight: lighter;
     color: #E5383B;
 }
 
-/* Round score */ 
+/* Round */ 
 
 .bg-card {
     background-color: #E5383B;
     border-radius: 0%;
     color: #161A1D;
-    width: 7.5rem;
-    height: 6rem;
+    width: 15vh;
+    height: 12vh;
 }
 
 h3 {
@@ -85,9 +90,11 @@ h3 {
     font-weight: bold;
 }
 
-#roundScoreP1, #roundScoreP2 {
+#roundScoreP1, #roundScoreP2{
     font-size: 3vh;
 }
+
+/* Message displaying the winner */ 
 
 #infoWinner {
     font-size: 1rem;
@@ -101,19 +108,33 @@ h3 {
 /*                              Media queries */ 
 /* ******************************************************************************* */ 
 
+/* *******************  Portrait orientation  ********************** */ 
+
+@media screen and (orientation: portrait) {
+    body {
+      width:100vh;
+  
+      -webkit-transform: rotate(-90deg);
+      -moz-transform: rotate(-90deg);
+      -o-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+    }
+  }
+
 
 /* ************  Mobile phones : landscape orientation  ************** */ 
 
-@media only screen and (min-width: 576px) and (orientation: landscape) {
+@media only screen and (min-width: 560px) and (orientation: landscape) {
 
-    #firstSection, #secondSection {
-        margin: 0 3vh 0 3vh; /* top right bottom left */ 
+    main {
+        margin: 0 1vh; 
     }
     a {
         font-size: 4vh; 
     }
     .icons, #dotP1, #dotP2 {
-        width: 4vh;
+        width: 3vh;
     }
     h2 {
         font-size: 6vh; 
@@ -122,9 +143,8 @@ h3 {
         font-size: 14vh;
     }
     .bg-card {
-        width: 6.5rem;
-        height: 5rem;
-        margin-top: 2rem; 
+        width: 25vh;
+        height: 22vh;
     }
     h3 {
         font-size: 2vh;
@@ -135,48 +155,38 @@ h3 {
 }
 
 
-/* ******************  Mobile phones and Tablets ******************** */ 
+/* ******************  Mobile phones Tablets Netbooks  ******************** */ 
 
-@media screen and (min-width: 700px) and (orientation: landscape) {
+@media only screen and (min-width: 700px) and (orientation: landscape) {
 
-    #diceSide { 
-        margin-bottom: 1rem; 
+    main {
+        margin: 0vh 3vh; 
     }
-    .bg-card {
-        width: 8rem;
-        height: 6.5rem;
-        margin-top: 3.5rem;
+    h3 {
+        font-size: 2vh;
     }
 }
 
 
-/* ****************** Tablets, laptops and computer   **************** */ 
+/* ****************** Tablets, laptops and computers   **************** */ 
 
-@media screen and (min-width: 950px) and (orientation: landscape) { 
+@media only screen and (min-width: 992px) and (orientation: landscape) { 
 
-    a {
-        font-size: 3vh; 
-    } 
     #game-board {
-        border: 2vh solid transparent;
+        border: 20px solid transparent;
         border-image: linear-gradient( rgba(182, 173, 144, 1), rgba(147, 102, 57, 1), rgba(88, 47, 14, 1), rgba(127, 79, 36, 1));
         border-image-slice: 30;
     }
-    #firstSection, #secondSection {
-        margin: 0 5vh 0 5vh; 
-    }
+    a {
+        font-size: 3vh; 
+    } 
     .icons {
         width: 3.5vh;
     }
-    #diceSide {
-        margin-top: 3rem;
-        margin-bottom: 13rem;
-    }
     .bg-card {
-        width: 9.5rem;
-        height: 8rem;
-        margin-top: 11rem;
-    }
+        width: 23vh;
+        height: 16vh; 
+    } 
     #infoWinner {
         font-size: 2rem;
     }

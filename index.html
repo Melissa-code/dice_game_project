@@ -22,10 +22,19 @@
 
 <body>
 
-    <div id="game-board" class="container-fluid">
-
+    <!----------------------------------------------------------------------------------------------------->
+    <!-- HEADER -->
+    <!----------------------------------------------------------------------------------------------------->
+    
+    <header>
         <h1>Dice game</h1>
+    </header>
 
+    <!----------------------------------------------------------------------------------------------------->
+    <!-- MAIN -->
+    <!----------------------------------------------------------------------------------------------------->
+    
+    <main id="game-board" class="container-fluid">
 
         <!----------------------------------------------------------------------------------------------------->
         <!-- FIRST SECTION -->
@@ -53,11 +62,11 @@
         <!-- SECOND SECTION -->
         <!----------------------------------------------------------------------------------------------------->
 
-        <section id="secondSection" class="row py-3 py-md-0">
+        <section id="secondSection" class="row pt-2 py-md-3 py-lg-4 py-xl-5">
 
-            <!--------------- Player 1 zone -------------->
+            <!--------------- Player 1 and Global -------------->
 
-            <article class="col-sm-4 pt-2 py-lg-3">
+            <article class="col-4">
 
                 <!-- Player 1 -->
                 <div class="d-flex justify-content-center align-items-center printPlayer">
@@ -67,6 +76,47 @@
 
                 <!-- Global score player 1 -->
                 <p id="globalScoreP1" class="globalScore text-center">0</p> 
+
+            </article>
+
+
+            <!------------- Dice ------------->
+
+            <article  class="col-4 text-center pt-3">
+
+                <!-- Dice -->
+                <div id="diceSide" class="pt-3 pt-lg-5"></div>
+           
+            </article>
+
+           
+            <!--------------- Player 2 and Global ----------------->
+
+            <article class="col-4">
+
+                <!-- Player 2 -->
+                <div class="d-flex justify-content-center align-items-center printPlayer">
+                    <h2 id="player2" class="pr-3">PLAYER 2</h2>
+                    <img src="img/iconRedDot.svg" alt="point rouge montrant que le joueur en cours est le player 2" id="dotP2"> 
+                </div>
+
+                <!-- Global score player 2 -->
+                <p id="globalScoreP2" class="globalScore text-center">0</p>
+
+            </article>
+
+        </section>
+
+
+        <!----------------------------------------------------------------------------------------------------->
+        <!-- THIRD SECTION -->
+        <!----------------------------------------------------------------------------------------------------->
+
+        <section id="thirdSection" class="row pt-4 pb-2 pt-lg-5">
+
+            <!--------------- Player 1 Round ----------------->
+
+            <article class="col-4">
 
                 <!-- Round score player 1 -->
                 <div class="card bg-card d-block mx-auto text-center">
@@ -78,47 +128,33 @@
 
             </article>
 
+            <!--------------- 2 Links : Roll Dice & Hold ----------------->
 
-            <!------------- Dice and links zone ------------->
-
-            <article  class="col-sm-4 text-center py-4 pt-lg-5">
-
-                <!-- Dice -->
-                <div id="diceSide" class="py-4"></div>
+            <article  class="col-4 text-center">
 
                 <!-- Roll Dice link -->
-                <div class="pt-lg-0">
+                <div class="pb-lg-3">
                     <a href="#" id="rollDiceLink">
                         <img src="img/iconRefresh.svg" alt="lancer le dé" class="icons">
                         <span class="pl-2"></span>
                         ROLL DICE
                     </a>
                 </div>
-                
+            
                 <!-- Hold link -->
-                <div class="pt-3 pt-md-5">
+                <div class="pt-4 pt-lg-4 pt-xl-5">
                     <a href="#" id="holdLink">
                         <img src="img/iconDownload.svg" alt="Ajouter les points au score global" class="icons">
                         <span class="pl-2"></span>
                         HOLD
                     </a>
                 </div>
-           
+
             </article>
 
-           
-            <!--------------- Player 2 zone ----------------->
+            <!--------------- Player 2 Round ----------------->
 
-            <article class="col-sm-4 pt-2 py-lg-3">
-
-                <!-- Player 2 -->
-                <div class="d-flex justify-content-center align-items-center printPlayer">
-                    <h2 id="player2" class="pr-3">PLAYER 2</h2>
-                    <img src="img/iconRedDot.svg" alt="point rouge montrant que le joueur en cours est le player 2" id="dotP2"> 
-                </div>
-
-                <!-- Global score player 2 -->
-                <p id="globalScoreP2" class="globalScore text-center">0</p>
+            <article class="col-4">
 
                 <!-- Round score player 2 -->
                 <div class="card bg-card d-block mx-auto text-center">
@@ -127,11 +163,12 @@
                         <p id="roundScoreP2" class="card-text text-white">0</p>
                     </div>
                 </div>
+
             </article>
+            
+        </section>  
 
-        </section>
-
-    </div>
+    </main>
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
